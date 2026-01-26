@@ -128,40 +128,12 @@ export function App() {
 
       {/* Main Content Area */}
       <main className="md:ml-[280px] min-h-screen relative">
-        {/* Background – fixed, пълен екран */}
-        <div className="fixed inset-0 z-0 md:left-[280px] pointer-events-none">
-          {/* Основен layer с изображението */}
-          <div
-            className="
-              absolute inset-0 bg-cover bg-center bg-no-repeat
-              grayscale contrast-[1.25] brightness-[0.5]
-              transition-opacity duration-1000 ease-out
-              bg-black/30                          /* fallback цвят */
-            "
-            style={{
-              backgroundImage: `url("/images/bg.webp")`,
-            }}
-          />
-
-          {/* Допълнителни градиентни слоеве за по-добра четимост */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/70" />
-          <div className="absolute inset-0 bg-black/10" />
+        {/* Background Image Layer */}
+        <div className="fixed inset-0 z-0 md:left-[280px]">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516961642265-531546e84af2?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center grayscale contrast-125 brightness-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
-
-        {/* Съдържание – по-висок z-index */}
-        <div className="relative z-10 p-6 md:p-16 lg:p-24 max-w-5xl mx-auto">
-          <header className="mb-16 md:mb-24">
-            <h2 className="text-5xl md:text-8xl font-impact text-white/90 uppercase tracking-tight">
-              FEBRUARY
-            </h2>
-          </header>
-
-          <div className="space-y-16">
-            {/* твоите EventCard-ове тук */}
-          </div>
-        </div>
-      </main>
-    </div>
 
         {/* Content Scroll Layer */}
         <div className="relative z-10 p-6 md:p-16 lg:p-24 max-w-5xl">
