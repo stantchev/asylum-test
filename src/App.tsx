@@ -130,7 +130,7 @@ export function App() {
       <main className="md:ml-[280px] min-h-screen relative">
         {/* Background Image Layer */}
         <div className="fixed inset-0 z-0 md:left-[280px]">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516961642265-531546e84af2?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center grayscale contrast-125 brightness-50"></div>
+          <div className="absolute inset-0 bg-[url('https://cdn.flixel.com/flixel/4sei02lbjw5ws8h1lnvs.thumbnail.jpg=80&w=2574&auto=format&fit=crop')] bg-cover bg-center grayscale contrast-125 brightness-50"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80"></div>
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
