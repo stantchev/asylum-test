@@ -14,17 +14,16 @@ export function ImprintModal({ isOpen, onClose }: ImprintModalProps) {
             <strong className="text-white">Venue Name:</strong> Клуб Асайлъм
             (Asylum Club)
             <br />
-            <strong className="text-white">Address:</strong> ул. „Христо Белчев"
-            1, София център, 1000 София, Bulgaria
+            <strong className="text-white">Address:</strong> ul. Hristo Belchev 1, Sofia, Bulgaria
           </p>
         </div>
 
         <div>
           <h3 className="text-white font-medium mb-2">Contact</h3>
           <p>
-            <strong className="text-white">Email:</strong> info@asylum-sofia.com
+            <strong className="text-white">Email:</strong> S O O N
             <br />
-            <strong className="text-white">Phone:</strong> +359 XXX XXX XXX
+            <strong className="text-white">Phone:</strong> S O O N
           </p>
         </div>
 
@@ -64,7 +63,7 @@ export function ImprintModal({ isOpen, onClose }: ImprintModalProps) {
         </div>
 
         <p className="text-xs text-gray-500 pt-4">
-          © 2026 Asylum Sofia. All rights reserved.
+          © 2026 Asylum Sofia. All rights reserved. Powered by Stanchev Digital.
         </p>
       </div>
     </Modal>);
