@@ -50,7 +50,7 @@ export function EventCard({
         )}
 
         {/* DAY badge */}
-        <span className="inline-block w-fit border-2 border-red-600 px-3 py-1 text-red-600 font-bold tracking-widest uppercase">
+        <span className="inline-block w-fit bg-red-600 px-4 py-1.5 text-white font-bold tracking-widest uppercase shadow-[0_0_10px_rgba(255,0,0,0.6)]">
           {day}
         </span>
 
