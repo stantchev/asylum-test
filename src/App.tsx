@@ -188,18 +188,21 @@ export function App() {
                       <div className="space-y-16">
                         {monthEvents.map((event) =>
                     <EventCard
-                      key={event.id}
-                      id={event.id}
-                      day={event.day}
-                      date={event.date}
-                      time={event.time}
-                      title={event.title}
-                      details={event.details}
-                      doorTime={event.doorTime}
-                      isSpecial={event.isSpecial}
-                      lineup={event.lineup}
-                      ticketLink={event.ticketLink}
-                      onClick={() => setSelectedEvent(event)} />
+                        key={event.id}
+                        id={event.id}
+                        day={event.day}
+                        dayClassName="border-2 border-red-600 px-3 py-1 text-red-600 font-bold tracking-widest rounded-none"
+                        date={event.date}
+                        time={event.time}
+                        title={event.title}
+                        details={event.details}
+                        doorTime={event.doorTime}
+                        isSpecial={event.isSpecial}
+                        lineup={event.lineup}
+                        ticketLink={event.ticketLink}
+                        onClick={() => setSelectedEvent(event)}
+                      />
+
 
                     )}
                       </div>
