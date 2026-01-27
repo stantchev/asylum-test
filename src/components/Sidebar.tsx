@@ -52,14 +52,16 @@ export function Sidebar({
         <div className="space-y-4">
           {/* Asylum Logo */}
           <div className="mb-1">
-            <h1 className="text-4xl md:text-5xl font-impact tracking-tighter leading-none text-white">
-              ASYLUM
-            </h1>
+            <img
+              src="/images/gay-parties-logo.svg"
+              alt="gay parties logo"
+              className="h-12 md:h-16 w-auto"
+            />
             <div className="h-[2px] w-16 bg-white mt-2"></div>
           </div>
 
           <p className="text-xs text-gray-400 font-medium tracking-wide leading-relaxed">
-            Sofia's sanctuary for self-expression
+            Sofia's best gay parties
           </p>
 
           {/* Navigation - Dynamic months */}
