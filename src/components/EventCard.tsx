@@ -1,4 +1,5 @@
 import React from 'react';
+
 interface EventCardProps {
   id?: string;
   day: string;
@@ -12,6 +13,7 @@ interface EventCardProps {
   ticketLink?: string;
   onClick?: () => void;
 }
+
 export function EventCard({
   id,
   day,
@@ -27,25 +29,30 @@ export function EventCard({
 }: EventCardProps) {
   return (
     <div
-      className={`relative mb-12 group transition-all duration-300 ${onClick ? 'cursor-pointer hover:brightness-110' : ''} ${isSpecial ? 'pl-6' : ''}`}
-      onClick={onClick}>
-
+      className={`relative mb-12 group transition-all duration-300
+        ${onClick ? 'cursor-pointer hover:brightness-110' : ''}
+        ${isSpecial ? 'pl-6' : ''}
+      `}
+      onClick={onClick}
+    >
       {/* Red accent bar for special events */}
-      {isSpecial &&
-      <div className="absolute left-0 top-0 bottom-0 w-2 bg-[#FF0000] shadow-[0_0_10px_rgba(255,0,0,0.5)]" />
-      }
+      {isSpecial && (
+        <div className="absolute left-0 top-0 bottom-0 w-2 bg-red-600 shadow-[0_0_10px_rgba(255,0,0,0.5)]" />
+      )}
 
       <div className="flex flex-col space-y-1">
-        {/* Day Header */}
-        {isSpecial &&
-        <span className="text-white text-lg font-medium mb-1 tracking-wider">
+
+        {/* Special label */}
+        {isSpecial && (
+          <span className="text-white text-lg font-medium mb-1 tracking-wider">
             SPECIAL
           </span>
-        }
+        )}
 
-        <h3 className="text-2xl md:text-3xl font-impact uppercase text-white tracking-wide">
+        {/* DAY badge */}
+        <span className="inline-block w-fit border-2 border-red-600 px-3 py-1 text-red-600 font-bold tracking-widest uppercase">
           {day}
-        </h3>
+        </span>
 
         {/* Date & Time */}
         <div className="text-xl md:text-2xl font-medium text-white/90 mb-1">
@@ -65,20 +72,20 @@ export function EventCard({
         </div>
 
         {/* Ticket CTA */}
-        {ticketLink &&
-        <div className="mt-4">
+        {ticketLink && (
+          <div className="mt-4">
             <a
-            href={ticketLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="inline-block px-6 py-3 bg-white text-black font-impact uppercase tracking-wide hover:bg-gray-200 transition-colors text-sm md:text-base">
-
+              href={ticketLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-block px-6 py-3 bg-white text-black font-impact uppercase tracking-wide hover:bg-gray-200 transition-colors text-sm md:text-base"
+            >
               Get Tickets →
             </a>
           </div>
-        }
+        )}
       </div>
-    </div>);
-
+    </div>
+  );
 }
