@@ -24,7 +24,7 @@ interface WooCommerceProduct {
  */
 export async function fetchEvents(): Promise<Event[]> {
   try {
-    const url = `${API_URL}?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=100&status=publish`;
+    const url = `${API_URL}?consumer_key=${CONSUMER_KEY}&consumer_secret=${CONSUMER_SECRET}&per_page=100&status=publish&search=gay+gays`;
 
     const response = await fetch(url);
 
