@@ -23,38 +23,38 @@ Web приложение за показване на гей партита и �
 ## Структура (основни файлове)
 project-root/
 ├── public/
-│   └── images/
-│       ├── bg.jpg
-│       ├── bg.webp
-│       ├── gay-parties-logo.svg
-│       └── test.tsx
+│ └── images/
+│ ├── bg.jpg
+│ ├── bg.webp
+│ ├── gay-parties-logo.svg
+│ └── test.tsx
 │
 └── src/
 ├── components/
-│   ├── AboutModal.tsx
-│   ├── EventCard.tsx
-│   ├── GayLoungeModal.tsx
-│   ├── ImprintModal.tsx
-│   ├── Modal.tsx
-│   ├── PrivacyModal.tsx
-│   ├── RulesModal.tsx
-│   └── Sidebar.tsx
+│ ├── AboutModal.tsx
+│ ├── EventCard.tsx
+│ ├── GayLoungeModal.tsx
+│ ├── ImprintModal.tsx
+│ ├── Modal.tsx
+│ ├── PrivacyModal.tsx
+│ ├── RulesModal.tsx
+│ └── Sidebar.tsx
 │
 ├── data/
-│   └── events.ts
+│ └── events.ts
 │
 ├── pages/
-│   ├── EventPage.tsx
-│   └── index.tsx
+│ ├── EventPage.tsx
+│ └── index.tsx
 │
 ├── services/
-│   └── api.ts
+│ └── api.ts
 │
 ├── styles/
-│   └── globals.css
+│ └── globals.css
 │
 ├── utils/
-│   └── htmlParser.ts
+│ └── htmlParser.ts
 │
 ├── App.tsx
 ├── index.css
