@@ -94,3 +94,59 @@ function parseEventDate(dateStr: string): Date {
   const [day, month, year] = dateStr.split('.').map(Number);
   return new Date(year || 2026, (month || 1) - 1, day || 1);
 }
+
+export function addGayLoungeFromDate(events: Event[], startDateStr: string = '16.01.2026'): Event[] {
+  const [startDay, startMonth, startYear] = startDateStr.split('.').map(Number);
+  const start = new Date(startYear, startMonth - 1, startDay);
+
+  const gayLounges: Event[] = [];
+  let current = new Date(start);
+
+  while (current.getFullYear() <= 2026) { // до края на 2026
+    if (current.getDay() === 0) { // неделя
+      const d = current.getDate().toString().padStart(2, '0');
+      const m = (current.getMonth() + 1).toString().padStart(2, '0');
+      const dateStr = `${d}.${m}.${current.getFullYear()}`;
+
+      gayLounges.push({
+        id: `gay-lounge-${dateStr.replace(/\./g, '-')}`,
+        day: 'SUNDAY',
+        date: dateStr,
+        time: '18:00',
+        title: 'GAY LOUNGE',
+        details: 'Entry: 6€ - only at the door',
+        doorTime: '18:00',
+        isSpecial: false,
+        lineup: '',
+        description: 'Gay Lounge every Sunday at Club Asylum.\n\nTickets only at the door – no online reservations!\nJust come at 18:00!',
+        ticketLink: '#gay-lounge-modal',
+        price: '€6',
+        month: getMonthFromDate(dateStr),
+        image: 'https://i0.wp.com/kinkcorp.com/wp-content/uploads/2026/01/Gay-Lounge-2.png?resize=1536%2C864&ssl=1',
+      });
+    }
+    current.setDate(current.getDate() + 1);
+  }
+
+  return [...events, ...gayLounges].sort((a, b) => parseEventDate(a.date).getTime() - parseEventDate(b.date).getTime());
+}
+
+export function getMonthFromDate(dateStr: string): string {
+  if (!dateStr) return 'UPCOMING';
+  const [, month] = dateStr.split('.').map(Number);
+  const months = [
+    'JANUARY',
+    'FEBRUARY',
+    'MARCH',
+    'APRIL',
+    'MAY',
+    'JUNE',
+    'JULY',
+    'AUGUST',
+    'SEPTEMBER',
+    'OCTOBER',
+    'NOVEMBER',
+    'DECEMBER',
+  ];
+  return months[month - 1] || 'UPCOMING';
+}
