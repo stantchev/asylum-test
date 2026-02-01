@@ -35,21 +35,24 @@ export function GayLoungeModal({ isOpen, onClose }: GayLoungeModalProps) {
           </p>
         </div>
 
-        {/* Details */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div>
-            <DoorOpen className="mx-auto text-[#ff0000] mb-2" size={32} />
-            <p className="text-xl text-[#ff0000]">Doors</p>
-            <p className="text-2xl font-bold text-[#ff0000]">18:00</p>
+        {/* Details – хоризонтално на мобилно */}
+        <div className="grid grid-cols-3 gap-4 text-center md:gap-6">
+          <div className="flex flex-col items-center">
+            <DoorOpen className="text-[#ff0000] mb-1" size={28} />
+            <p className="text-sm md:text-xl text-[#ff0000] font-medium">Doors</p>
+            <p className="text-base md:text-2xl font-bold text-[#ff0000]">18:00</p>
           </div>
-          <div>
-            <Euro className="mx-auto text-[#ff0000] mb-2" size={32} />
-            <p className="text-xl text-[#ff0000]">Entry</p>
-            <p className="text-2xl font-bold text-[#ff0000]">6 €</p>
+
+          <div className="flex flex-col items-center">
+            <Euro className="text-[#ff0000] mb-1" size={28} />
+            <p className="text-sm md:text-xl text-[#ff0000] font-medium">Entry</p>
+            <p className="text-base md:text-2xl font-bold text-[#ff0000]">6 €</p>
           </div>
-          <div>
-            <MapPin className="mx-auto text-[#ff0000] mb-2" size={32} />
-            <p className="text-xl text-[#ff0000]">Club Asylum</p>
+
+          <div className="flex flex-col items-center">
+            <MapPin className="text-[#ff0000] mb-1" size={28} />
+            <p className="text-sm md:text-xl text-[#ff0000] font-medium">Location</p>
+            <p className="text-base md:text-2xl font-bold text-[#ff0000]">Club Asylum</p>
           </div>
         </div>
 
