@@ -1,7 +1,7 @@
 // src/components/GayLoungeModal.tsx
 import React from 'react';
-import { Modal } from './Modal'; // ← твоят Modal компонент, който вече имаш
-import { MapPin, DoorOpen, Euro } from 'lucide-react';
+import { Modal } from './Modal';
+import { DoorOpen, Euro, MapPin } from 'lucide-react';
 
 interface GayLoungeModalProps {
   isOpen: boolean;
@@ -27,39 +27,41 @@ export function GayLoungeModal({ isOpen, onClose }: GayLoungeModalProps) {
 
         {/* Title */}
         <div className="text-center">
-          <h3 className="text-5xl font-impact uppercase tracking-wider text-red-400 mb-4">
+          <h3 className="text-5xl font-impact uppercase tracking-wider text-[#ff0000] mb-4">
             GAY LOUNGE
           </h3>
-          <p className="text-2xl font-medium">Every Sunday</p>
+          <p className="text-2xl font-medium text-[#ff0000]">
+            Every Sunday
+          </p>
         </div>
 
         {/* Details */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div>
-            <DoorOpen className="mx-auto text-red-400 mb-2" size={32} />
-            <p className="text-xl">Doors</p>
-            <p className="text-2xl font-bold text-red-300">18:00</p>
+            <DoorOpen className="mx-auto text-[#ff0000] mb-2" size={32} />
+            <p className="text-xl text-[#ff0000]">Doors</p>
+            <p className="text-2xl font-bold text-[#ff0000]">18:00</p>
           </div>
           <div>
-            <Euro className="mx-auto text-red-400 mb-2" size={32} />
-            <p className="text-xl">Entry</p>
-            <p className="text-2xl font-bold text-red-300">6 €</p>
+            <Euro className="mx-auto text-[#ff0000] mb-2" size={32} />
+            <p className="text-xl text-[#ff0000]">Entry</p>
+            <p className="text-2xl font-bold text-[#ff0000]">6 €</p>
           </div>
           <div>
-            <MapPin className="mx-auto text-red-400 mb-2" size={32} />
-            <p className="text-xl">Club Asylum</p>
+            <MapPin className="mx-auto text-[#ff0000] mb-2" size={32} />
+            <p className="text-xl text-[#ff0000]">Club Asylum</p>
           </div>
         </div>
 
         {/* Important Info */}
         <div className="text-center space-y-4 text-lg">
-          <p className="text-xl font-medium text-white">
-            Tickets are available <span className="text-red-300 font-bold">only at the door</span>.
+          <p className="text-xl font-medium text-[#ff0000]">
+            Tickets are available <span className="text-[#ff0000] font-bold">only at the door</span>.
           </p>
-          <p>
+          <p className="text-[#ff0000]">
             Tickets cannot be reserved or purchased online.
           </p>
-          <p className="italic text-red-300 text-xl">
+          <p className="italic text-[#ff0000] text-xl">
             Just come on Sunday at 18:00!
           </p>
         </div>
@@ -82,7 +84,7 @@ export function GayLoungeModal({ isOpen, onClose }: GayLoungeModalProps) {
             href={googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full py-4 bg-red-600 text-white text-center uppercase font-medium hover:bg-red-500 transition rounded"
+            className="block w-full py-4 bg-[#ff0000] text-white text-center uppercase font-medium hover:bg-[#cc0000] transition rounded"
           >
             📍 Open in Google Maps
           </a>
