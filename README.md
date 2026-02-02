@@ -96,40 +96,35 @@ npm run dev
 ## [Unreleased] - 02.02.2026
 
 ### Added
-- `EventCard.tsx` – hover ефект: линия под евента се запълва с #FF2800 отляво надясно, заглавието става #FF2800, евентът се избутва леко надясно + scale
-- По-малки и по-четими надписи в `EventCard` (text-xs/sm/md → text-sm/base/lg)
-- Финален полиран вид на `EventCard` (закръглен badge, soft shadow, плавни transition-и)
-- `RulesModal.tsx` – икони, визуално оформление, предупреждение в блок
-- `AboutModal.tsx` – полиран стил с икони, #FF2800 акценти, голямо заглавие, Google Maps
-- `ImprintModal.tsx` – полиран стил с икони, #FF2800 акценти, секции с bold заглавия
-- `PrivacyModal.tsx` – полиран стил с икони, #FF2800 акценти, секции с bold заглавия
-- Автоматично генериране на Gay Lounge събития от 16.01.2026 (в `App.tsx` useEffect)
+- Hover ефект в `EventCard.tsx`: разделителната линия под евента се запълва с `#FF2800` отляво надясно
+- Hover ефект в `EventCard.tsx`: заглавието (title) променя цвета си на `#FF2800`
+- Hover ефект в `EventCard.tsx`: евентът се измества леко надясно и се увеличава минимално (`translate-x-2` + `scale-[1.01]`)
+- По-малки и по-четими надписи в `EventCard` (`text-xs/sm/md` → `text-sm/base/lg`)
+- Финално полиран външен вид на `EventCard`: заоблен badge, мекa сянка (soft shadow), плавни transition-и (`duration-300/500`), по-мек hover (`brightness-105`)
+- Надписите в `EventCard` са увеличени **една идея** (`text-base/lg`) за по-добра четимост
+- Разделителна линия под евента – тънка (1.5px), заоблена, сива по подразбиране и `#FF2800` градиент при hover
+- Бутонът в `EventCard` – бял фон с черен текст, лекa сянка и hover shadow за 3D усещане
 
-### Changed
-- Цветове в модалите и `EventCard` – ярко #FF2800 навсякъде (без glow)
-- Надписи в `EventCard` – една идея по-големи (text-base/md/lg)
-- Hover в `Sidebar` – червена линия под месеца само при hover или active (отляво надясно)
-- Линията под месеца в `Sidebar` – невидима ако няма hover и не е currentMonth
-- Унифициран бутон в `EventCard` – бял с черни букви за Gay Lounge
-- Всички клиентски текстове в модалите – на английски
+### Changed (Sidebar.tsx)
+- Hover ефект в навигацията по месеци: червена линия (`#FF2800`) под месеца се появява и се запълва отляво надясно
+- Линията под месеца е **невидима**, ако няма hover и месецът не е `currentMonth`
+- Активният месец (`currentMonth`) винаги има пълна червена линия отдолу
+
+### Changed (модали)
+- `RulesModal.tsx` – полиран стил с икони, `#FF2800` акценти и блок с предупреждение
+- `AboutModal.tsx` – полиран стил с икони, `#FF2800` акценти, голямо заглавие и Google Maps
+- `ImprintModal.tsx` – полиран стил с икони, `#FF2800` акценти и секции с bold заглавия
+- `PrivacyModal.tsx` – полиран стил с икони, `#FF2800` акценти и секции с bold заглавия
 
 ### Fixed
-- Липсващия `onRulesClick` проп в `App.tsx` + state + модал
-- Грешки с `getMonthFromDate` (импорт от `data/events.ts`)
-- Самоимпорт в `Sidebar.tsx` (import { Sidebar } from "./components/Sidebar")
-- Логика за `activeMonths` – преизчисляване в useEffect, за да светва следващия месец
-- 500 грешка при липса на +Page.tsx (добавихме минимален тест файл)
-- Синтактична грешка в `+config.js` (trailing запетая)
+- Линията под месеца в `Sidebar` – вече е невидима, ако няма hover и месецът не е `currentMonth`
+- Самоимпорт в `Sidebar.tsx` (премахнат грешният import:  
+  `import { Sidebar } from "./components/Sidebar"`)
 
-### Removed / Cleaned
-- Ненужни импорти (като самоимпорт на Sidebar в себе си)
-- Стари големи текстови размери в `EventCard` (заменени с по-малки и четими)
-
-Общо:  
-- 4 модала (Rules, About, Imprint, Privacy) – в един и същ polished стил
-- `EventCard` – супер полирана карта с hover ефекти
-- `Sidebar` – hover линия под месеца (само при hover/active)
-- `App.tsx` – логика за събития и модали, преизчисляване на activeMonths
+### Summary
+- `EventCard` – напълно полирана карта с богати hover ефекти
+- `Sidebar` – интерактивна линия под месеца (само при hover или active)
+- 4 модала – унифициран стил (червени акценти, икони, центрирано съдържание)
 
 ## [Unreleased] - 28.01.2026
 
