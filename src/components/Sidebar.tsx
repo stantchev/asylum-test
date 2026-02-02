@@ -71,19 +71,30 @@ export function Sidebar({
           </p>
 
           {/* Months Navigation */}
-          <nav className="mt-12 md:mt-24 space-y-2">
+          <nav className="mt-12 md:mt-24 space-y-3">
             {months.length > 0 ? (
               months.map((month) => (
-                <button
-                  key={month}
-                  onClick={() => handleMonthClick(month)}
-                  className={`
-                    block text-lg font-medium transition-colors duration-200 text-left w-full
-                    ${month === currentMonth ? 'text-white' : 'text-gray-500 hover:text-white'}
-                  `}
-                >
-                  {month}
-                </button>
+                <div key={month} className="relative group">
+                  <button
+                    onClick={() => handleMonthClick(month)}
+                    className={`
+                      block text-lg md:text-xl font-medium transition-colors duration-200 text-left w-full relative pb-1
+                      ${month === currentMonth ? 'text-white' : 'text-gray-500 group-hover:text-white'}
+                    `}
+                  >
+                    {month}
+                  </button>
+
+                  {/* Червена линия – ВИДИМА САМО при hover ИЛИ active */}
+                  <div className="absolute bottom-0 left-0 h-[2px] w-full overflow-hidden rounded-full">
+                    <div
+                      className={`
+                        absolute inset-0 bg-gradient-to-r from-[#FF2800] to-transparent transition-all duration-500 ease-out
+                        ${month === currentMonth ? 'opacity-100 w-full' : 'opacity-0 group-hover:opacity-100 group-hover:w-full w-0'}
+                      `}
+                    ></div>
+                  </div>
+                </div>
               ))
             ) : (
               <p className="text-gray-500 text-sm">No events scheduled</p>
@@ -93,7 +104,7 @@ export function Sidebar({
 
         {/* Bottom Section */}
         <div className="space-y-8">
-          {/* RULES + ABOUT на един ред */}
+          {/* RULES + ABOUT */}
           <div className="flex flex-wrap items-center gap-4 text-lg">
             <button
               onClick={() => handleLinkClick(onRulesClick)}

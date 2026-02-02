@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { GayLoungeModal } from './GayLoungeModal';
+
 interface EventCardProps {
   id?: string;
   day: string;
@@ -31,14 +32,12 @@ export function EventCard({
 }: EventCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Проверка дали е Gay Lounge
   const isGayLounge =
     title.toUpperCase().includes('GAY LOUNGE') ||
     ticketLink === '#gay-lounge-modal';
 
   const handleTicketClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // спираме bubble към card-а ако има onClick
-
+    e.stopPropagation();
     if (isGayLounge) {
       setIsModalOpen(true);
     } else if (ticketLink) {
@@ -49,59 +48,60 @@ export function EventCard({
   return (
     <>
       <div
-        className={`relative mb-12 group transition-all duration-300
-          ${onClick ? 'cursor-pointer hover:brightness-110' : ''}
+        className={`group relative mb-12 transition-all duration-300 ease-out cursor-pointer
+          ${onClick ? 'hover:brightness-105' : ''}
         `}
         onClick={onClick}
       >
-
-        <div className="flex flex-col space-y-1">
-
+        {/* Основен контейнер */}
+        <div className="space-y-3 pb-6 group-hover:translate-x-2 group-hover:scale-[1.01] transition-transform duration-300 ease-out">
           {/* DAY badge */}
-          <span className="inline-block w-fit bg-red-600 px-4 py-1.5 text-white font-bold tracking-widest uppercase shadow-[0_0_10px_rgba(255,0,0,0.6)]">
+          <span className="inline-block px-4 py-1.5 text-sm md:text-base font-bold tracking-widest uppercase rounded bg-red-600 text-white shadow-[0_0_10px_rgba(255,40,0,0.5)]">
             {day}
           </span>
 
           {/* Date & Time */}
-          <div className="text-xl md:text-2xl font-medium text-white/90 mb-1">
+          <div className="text-base md:text-lg font-medium text-white/90">
             {date} <span className="ml-2">{time}</span>
           </div>
 
           {/* Title */}
-          <h2 className="text-3xl md:text-5xl font-impact uppercase text-white mb-3 leading-tight tracking-tight">
+          <h2 className="text-xl md:text-3xl font-impact uppercase text-white group-hover:text-[#FF2800] transition-colors duration-300">
             {title}
           </h2>
 
           {/* Details */}
-          <div className="text-base md:text-lg text-gray-300 font-medium max-w-2xl leading-relaxed">
+          <div className="text-sm md:text-base text-gray-300 font-medium leading-relaxed">
             <p>{details}</p>
             {doorTime && <p className="mt-1">{doorTime}</p>}
-            {lineup && <p className="mt-2 text-white/80">{lineup}</p>}
+            {lineup && <p className="mt-1 text-white/80">{lineup}</p>}
             {price && !isGayLounge && (
-              <p className="mt-2 font-bold text-emerald-400">{price}</p>
+              <p className="mt-1 font-bold text-emerald-400">{price}</p>
             )}
           </div>
-
-          {/* Ticket / Info CTA */}
-          {(ticketLink || isGayLounge) && (
-            <div className="mt-6">
-              <button
-                type="button"
-                onClick={handleTicketClick}
-                className={`inline-block px-6 py-3 font-impact uppercase tracking-wide text-sm md:text-base transition-colors rounded
-                  ${isGayLounge
-					? 'bg-white hover:bg-gray-200 text-black'
-                    : 'bg-white hover:bg-gray-200 text-black'}
-                `}
-              >
-                {isGayLounge ? 'Entry Info →' : 'Get Tickets →'}
-              </button>
-            </div>
-          )}
         </div>
+
+        {/* Разделителна линия – hover градиент отляво надясно */}
+        <div className="relative h-[1.5px] bg-gray-700/70 overflow-hidden rounded-full">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FF2800] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 ease-out"></div>
+        </div>
+
+        {/* Ticket / Info CTA */}
+        {(ticketLink || isGayLounge) && (
+          <div className="mt-5">
+            <button
+              type="button"
+              onClick={handleTicketClick}
+              className={`inline-block px-6 py-2.5 text-sm md:text-base font-impact uppercase tracking-wide rounded transition-colors
+                bg-white hover:bg-gray-200 text-black shadow-sm hover:shadow-md`}
+            >
+              {isGayLounge ? 'Entry Info →' : 'Get Tickets →'}
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Модалът за Gay Lounge */}
+      {/* Модал за Gay Lounge */}
       {isGayLounge && (
         <GayLoungeModal
           isOpen={isModalOpen}
